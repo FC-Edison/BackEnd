@@ -1,8 +1,10 @@
 import controller.Controller;
 import io.javalin.Javalin;
+import io.javalin.http.staticfiles.Location;
 import sql.DatabaseHelper;
 
 import java.sql.ResultSet;
+import java.util.List;
 
 
 /**
@@ -18,6 +20,10 @@ public class HelloWorld {
         Javalin app = Javalin.create().start(80);
 
         app.post("/login", Controller::login);
+
+        app.post("/book-keeping",Controller::bookKeeping);
+
+        app.config.addStaticFiles("/static", "static", Location.EXTERNAL);
     }
 }
 

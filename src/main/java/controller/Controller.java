@@ -2,6 +2,7 @@ package controller;
 
 
 import io.javalin.http.Context;
+import model.BookKeepingReply;
 import model.LoginReply;
 import sql.DatabaseHelper;
 
@@ -33,6 +34,43 @@ public class Controller {
                 throwables.printStackTrace();
                 reply.message = "未知错误";
                 reply.success = false;
+            }
+        }
+        ctx.json(reply);
+    }
+    public static void bookKeeping(Context ctx) {
+        BookKeepingReply reply = new BookKeepingReply(true,"");
+        String accountName = ctx.header("account_name");
+        String  timeStamp = ctx.formParam("time_stamp");
+        double amounts = Double.parseDouble(ctx.formParam("out_come_amount"));
+        String type = ctx.formParam("type");
+        String remarks = ctx.formParam("remarks");
+        if (accountName == null || type == null || remarks == null) {
+            reply.success = false;
+            reply.message = "获取输入信息错误";
+        }else {
+            String sql = "SELECT id FROM user WHERE account_name = " + DatabaseHelper.sqlString(accountName) + ";";
+            ResultSet res = DatabaseHelper.getInstance().exeSqlQuery(sql);
+            if (res == null) {
+                reply.success = false;
+                reply.message = "查询数据库错误";
+            }else {
+                try {
+                    if (res.first()) {
+                        int userId = res.getInt("id");
+                        sql = "INSERT INTO outcome ( time_stamp, out_come_amount, type, remarks, user_id )\n" +
+                                "                                                            VALUES\n" +
+                                "                    ( " + timeStamp + ", " + amounts + ", \"" + type + "\", \"" + remarks + "\", " + userId + " );";
+                        DatabaseHelper.getInstance().exeSqlUpdate(sql);
+                    }else{
+                        reply.success = false;
+                        reply.message = "找不到用户名";
+                    }
+                }catch (SQLException e){
+                    e.printStackTrace();
+                    reply.success = false;
+                    reply.message = "数据库错误";
+                }
             }
         }
         ctx.json(reply);
