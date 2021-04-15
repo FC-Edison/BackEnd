@@ -3,10 +3,6 @@ import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
 import sql.DatabaseHelper;
 
-import java.sql.ResultSet;
-import java.util.List;
-
-
 /**
  * @author Edison
  * @create 2021-04-03 13:42
@@ -21,7 +17,15 @@ public class HelloWorld {
 
         app.post("/login", Controller::login);
 
-        app.post("/book-keeping",Controller::bookKeeping);
+        app.post("/book-keeping/outcome",Controller::outcome);
+
+        app.post("/book-keeping/income",Controller::income);
+
+        app.post("/book-keeping/delete-record",Controller::deleteRecord);
+
+        app.post("/book-keeping/modify-record",Controller::modifyRecord);
+
+        app.get("/detailed-list",Controller::detailedList);
 
         app.config.addStaticFiles("/static", "static", Location.EXTERNAL);
     }
