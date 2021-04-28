@@ -73,7 +73,7 @@ method: POST
 }
 ```
 
-## 请求消费清单
+## 请求列表消费清单
 
 url:`/detailed-list`
 
@@ -89,6 +89,34 @@ method: GET
 ```
 
  响应参数：
+
+```json
+{
+  "success":true,
+  "message":"",
+  "time_stamp": 315105815,
+  "amount": 22.00,
+  "type": "餐饮",
+  "remarks": "",
+  "is_outcome": true
+}
+```
+
+## 请求图表消费清单
+
+url:`/detailed-chart`
+
+method: GET
+
+请求参数：
+
+```json
+{
+
+}
+```
+
+响应参数：
 
 ```json
 {

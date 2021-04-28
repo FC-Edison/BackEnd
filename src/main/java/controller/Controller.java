@@ -7,10 +7,6 @@ import sql.DatabaseHelper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * @author Edison
@@ -113,6 +109,32 @@ public class Controller {
                 }
                 while(incomeRes.next()){
                     reply.incomeList.add(new DetailedListReplyElement(incomeRes.getLong("time_stamp"),incomeRes.getDouble("amount"),incomeRes.getString("type"),incomeRes.getString("remarks"),false));
+                }
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        ctx.json(reply);
+    }
+    public static void detailedChart(Context ctx) {
+        DetailedChartReply reply = new DetailedChartReply(true, "");
+        int userId = identification(ctx);
+
+        String incomeSql = "SELECT * FROM `income` WHERE `user_id` = " + userId + ";";
+        String outcomeSql = "SELECT * FROM `outcome` WHERE `user_id` = " + userId + ";";
+        ResultSet incomeRes = DatabaseHelper.getInstance().exeSqlQuery(incomeSql);
+        ResultSet outcomeRes = DatabaseHelper.getInstance().exeSqlQuery(outcomeSql);
+
+        if(incomeRes == null || outcomeRes == null){
+            reply.success = false;
+            reply.message = "未知错误";
+        }else{
+            try{
+                while (outcomeRes.next()){
+                    reply.outcomeList.add(new DetailedChartReplyElement(outcomeRes.getLong("time_stamp"),outcomeRes.getDouble("amount"),outcomeRes.getString("type"),outcomeRes.getString("remarks"),true));
+                }
+                while(incomeRes.next()){
+                    reply.incomeList.add(new DetailedChartReplyElement(incomeRes.getLong("time_stamp"),incomeRes.getDouble("amount"),incomeRes.getString("type"),incomeRes.getString("remarks"),false));
                 }
             }catch (SQLException e){
                 e.printStackTrace();

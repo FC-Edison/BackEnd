@@ -27,6 +27,8 @@ public class HelloWorld {
 
         app.get("/detailed-list",Controller::detailedList);
 
+        app.get("/detailed-chart",Controller::detailedChart);
+
         app.config.addStaticFiles("/static", "static", Location.EXTERNAL);
     }
 }

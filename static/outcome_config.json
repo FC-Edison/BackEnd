@@ -2,53 +2,53 @@
   "config": [
     {
       "type": "餐饮",
-      "icon": "http://192.168.3.51/static/icon/canyin.png",
-      "icon_sel": "http://192.168.3.51/static/icon/canyin_sel.png"
+      "icon": "http://192.168.3.51:80/static/icon/canyin.png",
+      "icon_sel": "http://192.168.3.51:80/static/icon/canyin_sel.png"
     },
     {
       "type": "购物",
-      "icon": "http://192.168.3.51/static/icon/gouwu.png",
-      "icon_sel": "http://192.168.3.51/static/icon/gouwu_sel.png"
+      "icon": "http://192.168.3.51:80/static/icon/gouwu.png",
+      "icon_sel": "http://192.168.3.51:80/static/icon/gouwu_sel.png"
     },
     {
       "type": "交通",
-      "icon": "http://192.168.3.51/static/icon/jiaotong.png",
-      "icon_sel": "http://192.168.3.51/static/icon/jiaotong_sel.png"
+      "icon": "http://192.168.3.51:80/static/icon/jiaotong.png",
+      "icon_sel": "http://192.168.3.51:80/static/icon/jiaotong_sel.png"
     },
     {
       "type": "娱乐",
-      "icon": "http://192.168.3.51/static/icon/yule.png",
-      "icon_sel": "http://192.168.3.51/static/icon/yule_sel.png"
+      "icon": "http://192.168.3.51:80/static/icon/yule.png",
+      "icon_sel": "http://192.168.3.51:80/static/icon/yule_sel.png"
     },
     {
       "type": "理财",
-      "icon": "http://192.168.3.51/static/icon/touzi.png",
-      "icon_sel": "http://192.168.3.51/static/icon/touzi_sel.png"
+      "icon": "http://192.168.3.51:80/static/icon/touzi.png",
+      "icon_sel": "http://192.168.3.51:80/static/icon/touzi_sel.png"
     },
     {
       "type": "旅行",
-      "icon": "http://192.168.3.51/static/icon/lvxing.png",
-      "icon_sel": "http://192.168.3.51/static/icon/lvxing_sel.png"
+      "icon": "http://192.168.3.51:80/static/icon/lvxing.png",
+      "icon_sel": "http://192.168.3.51:80/static/icon/lvxing_sel.png"
     },
     {
       "type": "医疗",
-      "icon": "http://192.168.3.51/static/icon/yiliao.png",
-      "icon_sel": "http://192.168.3.51/static/icon/yiliao_sel.png"
+      "icon": "http://192.168.3.51:80/static/icon/yiliao.png",
+      "icon_sel": "http://192.168.3.51:80/static/icon/yiliao_sel.png"
     },
     {
       "type": "礼金",
-      "icon": "http://192.168.3.51/static/icon/lipin.png",
-      "icon_sel": "http://192.168.3.51/static/icon/lipin_sel.png"
+      "icon": "http://192.168.3.51:80/static/icon/lipin.png",
+      "icon_sel": "http://192.168.3.51:80/static/icon/lipin_sel.png"
     },
     {
       "type": "美容",
-      "icon": "http://192.168.3.51/static/icon/meirongxihu.png",
-      "icon_sel": "http://192.168.3.51/static/icon/meirongxihu_sel.png"
+      "icon": "http://192.168.3.51:80/static/icon/meirongxihu.png",
+      "icon_sel": "http://192.168.3.51:80/static/icon/meirongxihu_sel.png"
     },
     {
       "type": "其他",
-      "icon": "http://192.168.3.51/static/icon/qita.png",
-      "icon_sel": "http://192.168.3.51/static/icon/qita_sel.png"
+      "icon": "http://192.168.3.51:80/static/icon/outcomeqita.png",
+      "icon_sel": "http://192.168.3.51:80/static/icon/outcomeqita_sel.png"
     }
   ]
 }
